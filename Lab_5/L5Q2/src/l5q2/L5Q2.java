@@ -16,6 +16,7 @@ public class L5Q2 {
         Random rand = new Random();
         int[] integer = new int[10];
         boolean duplicate;
+        
         for(int i=0; i<10; i++){
             integer[i] = rand.nextInt(21);
             for(int j=0; j<i; j++){
