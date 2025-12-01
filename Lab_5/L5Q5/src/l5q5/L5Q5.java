@@ -46,7 +46,7 @@ public class L5Q5 {
         System.out.print("\nEnter a number to search: ");
         int target = sc.nextInt();
         
-        int s1 = 1,s2 =1;
+        int s1 = 1;
         while(true){
             if(num_des[s1-1]==target){
                 System.out.println("Linear Search - "+(s1)+" loop(s)");
@@ -60,25 +60,35 @@ public class L5Q5 {
         }
         
         
-        int tot = 10;
-        while(true){
-            if(target==num_des[tot]){
-                System.out.println("Binary Search - "+(s2)+" loop(s)");
+        // Binary Search (descending order)
+        int low = 0;
+        int high = 19;
+        int s2 = 1;    // loop count tracker
+
+        boolean found = false;
+
+        while (low <= high) {
+            int mid = (low + high) / 2;
+
+            if (num_des[mid] == target) {
+                System.out.println("Binary Search - " + s2 + " loop(s)");
+                found = true;
                 break;
             }
-            else{
-                if(target<num_des[tot/2])
-                    tot += tot/2;
-                else
-                    tot -= tot/2;
+            // For descending order:
+            else if (target < num_des[mid]) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
             }
+
             s2++;
-            if(s2==6){
-                System.out.println("Not found.");
-                break;
-            }
         }
-        
+
+        if (!found)
+            System.out.println("Binary Search - Not found.");
+
+
     }
     
 }
